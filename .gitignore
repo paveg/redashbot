@@ -16,6 +16,5 @@
 vendor/
 redashbot.iml
 .idea/
-.envrc # for direnv
-
-
+# for direnv
+.envrc
