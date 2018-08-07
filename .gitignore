@@ -18,3 +18,4 @@ redashbot.iml
 .idea/
 # for direnv
 .envrc
+bin/

@@ -1,4 +1,4 @@
-package redashbot
+package main
 
 import (
 	"log"
