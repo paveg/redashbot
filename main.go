@@ -1,10 +1,10 @@
-package main
+package redashbot
 
 import (
-	"os"
 	"log"
-
+	"os"
 	"github.com/nlopes/slack"
+	"regexp"
 )
 
 const FALSE_CODE = 1
@@ -18,11 +18,12 @@ func run(api *slack.Client) int {
 		case msg := <-rtm.IncomingEvents:
 			switch ev := msg.Data.(type) {
 			case *slack.HelloEvent:
-				log.Print("Hello Event")
-
+				// log.Print("Hello Event")
+				// fmt.Printf("msg: %v", msg)
 			case *slack.MessageEvent:
-				log.Printf("Message: %v\n", ev)
-				rtm.SendMessage(rtm.NewOutgoingMessage("Hello world", ev.Channel))
+				if isTextMatch(ev.Msg.Text) {
+					rtm.SendMessage(rtm.NewOutgoingMessage(ev.Msg.Text, ev.Channel))
+				}
 
 			case *slack.InvalidAuthEvent:
 				log.Print("Invalid credentials")
@@ -36,4 +37,9 @@ func main() {
 	token := os.Getenv("SLACK_API_TOKEN")
 	api := slack.New(token)
 	os.Exit(run(api))
+}
+
+func isTextMatch(text string) bool {
+	r := regexp.MustCompile(`https://.+/queries`)
+	return r.MatchString(text)
 }

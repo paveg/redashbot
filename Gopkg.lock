@@ -13,29 +13,9 @@
   revision = "0db1d5eae1116bf7c8ed96c6749acfbf4daaec3e"
   version = "v0.3.0"
 
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/lint"
-  packages = [
-    ".",
-    "golint"
-  ]
-  revision = "06c8688daad7faa9da5a0c2f163a3d14aac986ca"
-
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/tools"
-  packages = [
-    "go/ast/astutil",
-    "go/gcexportdata",
-    "go/internal/gcimporter",
-    "go/types/typeutil"
-  ]
-  revision = "3c07937fe18c27668fd78bbaed3d6b8b39e202ea"
-
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8c3fd643132b7f48c62c5f6212238e5a21ccacd702f34779cfc5025c6bdb2c91"
+  inputs-digest = "5ff1c078b10b346cdadc9eb98e3e212191432f678f44e96e8a68a53b0c9be16c"
   solver-name = "gps-cdcl"
   solver-version = 1
