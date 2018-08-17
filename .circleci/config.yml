@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version
+      - image: circleci/golang:1.10
+      
+    working_directory: /go/src/github.com/paveg/redashbot
+    steps:
+      - checkout
+
+      - run: go get -v -t -d ./...
+      - run:
+          command: |
+            go test -race -coverprofile=coverage.txt -covermode=atomic -v ./...
+
+          after_success:
+            - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
