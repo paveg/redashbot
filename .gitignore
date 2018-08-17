@@ -19,3 +19,6 @@ redashbot.iml
 # for direnv
 .envrc
 bin/
+
+# coverage
+coverage.txt
