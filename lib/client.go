@@ -1,14 +1,14 @@
-package main
+package client
 
 import (
-	"os"
-	"fmt"
-	"runtime"
-	"net/url"
-	"log"
-	"io"
-	"net/http"
 	"errors"
+	"fmt"
+	"io"
+	"log"
+	"net/http"
+	"net/url"
+	"os"
+	"runtime"
 )
 
 const (
