@@ -4,7 +4,7 @@ import (
 	"github.com/nlopes/slack"
 	"log"
 	"os"
-	"regexp"
+	"github.com/paveg/redashbot/lib/match"
 )
 
 const FALSE_CODE = 1
@@ -21,7 +21,7 @@ func run(api *slack.Client) int {
 				// log.Print("Hello Event")
 				// fmt.Printf("msg: %v", msg)
 			case *slack.MessageEvent:
-				if isTextMatch(ev.Msg.Text) {
+				if match.IsTextMatch(ev.Msg.Text) {
 					rtm.SendMessage(rtm.NewOutgoingMessage(ev.Msg.Text, ev.Channel))
 				}
 
@@ -37,9 +37,4 @@ func main() {
 	token := os.Getenv("SLACK_API_TOKEN")
 	api := slack.New(token)
 	os.Exit(run(api))
-}
-
-func isTextMatch(text string) bool {
-	r := regexp.MustCompile(`https://.+/queries`)
-	return r.MatchString(text)
 }
