@@ -14,12 +14,10 @@ jobs:
 
       - run:
           name: Run tests
-          command: |
-            go test -race -coverprofile=coverage.txt -covermode=atomic
+          command: make test
 
       - run:
           name: Upload code coverage
           when: on_success
           command: |
             bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
-

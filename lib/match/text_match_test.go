@@ -2,9 +2,10 @@ package match_test
 
 import (
 	"testing"
+	"github.com/paveg/redashbot/lib/match"
 )
 
-func TestIsTextMatch(t *testing.T) {
+func Test_IsTextMatch(t *testing.T) {
 	t.Parallel()
 	tests := []struct {
 		subject  string
@@ -25,7 +26,7 @@ func TestIsTextMatch(t *testing.T) {
 
 	for _, te := range tests {
 		t.Run(te.subject, func(t *testing.T) {
-			if isTextMatch(te.argument) != te.result {
+			if match.IsTextMatch(te.argument) != te.result {
 				t.Errorf("returns value is invalid[argument: %v, result: %v]\n", te.argument, te.result)
 			}
 		})

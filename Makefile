@@ -9,3 +9,6 @@ build:
 
 run:
 	docker run --rm --name $(IMAGE_NAME) -e SLACK_API_TOKEN $(IMAGE)
+
+test:
+	go test -race -v -coverprofile=coverage.txt -covermode=atomic
