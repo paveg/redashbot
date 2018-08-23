@@ -5,7 +5,8 @@ jobs:
       - image: circleci/golang:1.10
     working_directory: ~/go/src/github.com/paveg/redashbot
     environment:
-      - GOPATH: $HOME
+      - GOPATH: "$HOME/go"
+      - SRC_PATH: "$GOPATH/src/github.com/paveg/redashbot"
 
     steps:
       - checkout
