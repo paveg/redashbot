@@ -1,4 +1,4 @@
-package main
+package redashbot_test
 
 import (
 	"testing"

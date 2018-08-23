@@ -1,4 +1,4 @@
-package main
+package redashbot
 
 import (
 	"github.com/nlopes/slack"
